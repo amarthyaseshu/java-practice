@@ -8,6 +8,24 @@ import java.util.stream.Stream;
 public class Practice {
 
     public static void main(String[] args) {
+
+
+        // 2nd highest number from a given array
+
+        int[] arr={1,5,2,9,7,7,1};
+
+        Integer secHighest=Arrays.stream(arr).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+
+        // Longest string in a given array
+
+        String[] str={"abc","asdf","aqwsda","a"};
+
+     String longestSrtring=   Arrays.stream(str).sorted(Comparator.comparing(s->s.length())).skip(str.length-1).findFirst().get();
+        System.out.println(longestSrtring);
+
+        String longestSrtring2= Arrays.stream(str).reduce((s1,s2)->s1.length()>s2.length()?s1:s2).get();
+        System.out.println(longestSrtring2);
+
         // find 2nd highest element
 
         List<Integer> intList= Arrays.asList(9,3,1,6,9,8);
