@@ -16,7 +16,7 @@ public class Singleton {
                 }
             }
         }
-        return null;
+        return s;
     }
 
 
