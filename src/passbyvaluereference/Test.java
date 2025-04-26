@@ -1,5 +1,7 @@
 package passbyvaluereference;
 
+import lombok.Synchronized;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class Test {
         strObj=new String("asdf");
     }
 
-    private static void modifyString(String str) {
+    private static void  modifyString(String str) {
         str="efg";
     }
 

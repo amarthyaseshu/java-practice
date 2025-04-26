@@ -2,7 +2,7 @@ package strings;
 
 public class StringP {
 
-    public static void main(String[] args) {
+     static public void main(String[] args) {
         //1
         String s1="efgh";
         String s2;
