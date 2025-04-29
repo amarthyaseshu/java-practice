@@ -9,7 +9,7 @@ public class Java8CollectorOps {
     public static void main(String[] args) {
         //joining- Concat the elements of stream to a single string with optional delimiters, prefixes & suffixes
         List<String> strList=new ArrayList<>();
-        strList.stream().collect(Collectors.joining());
+      String s=  strList.stream().collect(Collectors.joining());
         strList.stream().collect(Collectors.joining(" "));
         strList.stream().collect(Collectors.joining(" ","[","]"));
 

@@ -62,7 +62,7 @@ public class Practice {
         // range dont include last
         List<Integer> range= IntStream.range(1,10).boxed().collect(Collectors.toList());
         // rangeClosed  include last
-        List<Integer> rangeClosed= IntStream.range(1,10).boxed().collect(Collectors.toList());
+        List<Integer> rangeClosed= IntStream.rangeClosed(1,10).boxed().collect(Collectors.toList());
 
     }
 }
