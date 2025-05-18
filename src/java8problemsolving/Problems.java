@@ -138,5 +138,14 @@ public class Problems {
         System.out.println(secondHighest.get());
 
 
+        /*
+        find max & min num
+         */
+        List<Integer> numbList=List.of(91,32,3,4,15,6,7,89);
+
+        Integer maxNumb =numbList.stream().max(Integer::compareTo).get();
+        Integer minNumb = numbList.stream().min(Integer::compareTo).get();
+
+
     }
 }

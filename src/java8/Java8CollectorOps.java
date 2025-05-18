@@ -96,5 +96,11 @@ public class Java8CollectorOps {
         Optional<Integer> sum = nums2.stream().collect(Collectors.reducing((l1, l2) -> l1 + l2));
 
 
+        // Store fruits & its word length
+        List<String> fruits=List.of("apple","banana","orange");
+
+      Map<String, Integer> collect2 = fruits.stream().collect(Collectors.toMap(f -> f, f -> f.length()));
+
+
     }
 }

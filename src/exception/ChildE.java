@@ -14,6 +14,9 @@ public class ChildE extends ParentE {
     public void childThrowsException() /* throws IOException */ {
     }
 
+    /*
+    It's not forced because it can happen any time as its not checked
+     */
     public void childThrowsRunTimeException() throws NullPointerException{
 
     }
