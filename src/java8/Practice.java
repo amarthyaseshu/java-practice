@@ -56,13 +56,37 @@ public class Practice {
 
         // Collectors.partitionBy - partition based on condition for eg partitioning even & odd
 
-        Map<Boolean, List<Integer>> collect1 = concatStream.collect(Collectors.partitioningBy(n -> n % 2 == 0));
+       // Map<Boolean, List<Integer>> collect1 = concatStream.collect(Collectors.partitioningBy(n -> n % 2 == 0));
 
         // IntStream.range or range closed, generate numbers of a particular range
         // range dont include last
         List<Integer> range= IntStream.range(1,10).boxed().collect(Collectors.toList());
         // rangeClosed  include last
         List<Integer> rangeClosed= IntStream.rangeClosed(1,10).boxed().collect(Collectors.toList());
+
+        // Convert list of words to individual Characters
+
+        List<String> words=List.of("hungry","coders");
+        // To collect as list of String
+        List<String> collect2 = words.stream().flatMap(word ->Stream.of(word.split(""))).toList();
+        // To collect as list of Characters
+        List<Character> collect3 = words.stream().flatMap(word ->Stream.of(word.split(""))).map(s->s.charAt(0)).toList();
+
+        System.out.println(collect2);
+
+        List<User> users=List.of(new User("a","p"),new User("b","p1")
+        ,new User("a","p2"));
+
+        // (existing,duplicate)->existing is useful because if key is same get exception,
+        //so tells which one to pick
+        Map<String,String> userMap=users.stream().collect(Collectors.toMap(user->user.getUserName(),user->user.getPassword(),
+
+                (existing,duplicate)->existing));
+
+        System.out.println(userMap);
+
+
+
 
     }
 }

@@ -37,6 +37,13 @@ public class StringP {
         System.out.println(s10);
         System.out.println(s7==s9);
 
+        //5. Integer & String addition, will be casted to string
+
+        Integer a=10;
+        String b="20";
+        System.out.println(a+b);
+
+
     }
 
 

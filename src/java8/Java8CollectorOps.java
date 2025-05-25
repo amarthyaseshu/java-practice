@@ -86,7 +86,7 @@ public class Java8CollectorOps {
         //Collect orders based on orderId & amount
         List<Orders> ordersList1=List.of(new Orders("abc","amar@gmail.com",null),new Orders("cba","seshu@gmail.com",null));
 
-        Map<String, BigDecimal> collect1 = ordersList1.stream().collect(Collectors.toMap(o -> o.getOrderNum(), o -> o.getAmount()));
+        //Map<String, BigDecimal> collect1 = ordersList1.stream().collect(Collectors.toMap(o -> o.getOrderNum(), o -> o.getAmount()));
         // for thread safety use toConcurrentMap
 
         //reducing
@@ -100,6 +100,17 @@ public class Java8CollectorOps {
         List<String> fruits=List.of("apple","banana","orange");
 
       Map<String, Integer> collect2 = fruits.stream().collect(Collectors.toMap(f -> f, f -> f.length()));
+
+      // Logical Qn
+
+      List<Integer> numbers=List.of(2,4,6);
+
+      List<Integer> result=numbers.stream().map(n->{
+        if(n==6) return null;
+        return n*2;
+      }).collect(Collectors.toList());
+      //Doesn't throw a NPE because storing null in a List<Integer> is allowed
+      System.out.println(result);
 
 
     }
