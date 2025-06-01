@@ -1,6 +1,7 @@
 package java8;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -84,8 +85,25 @@ public class Practice {
                 (existing,duplicate)->existing));
 
         System.out.println(userMap);
+        
+        
+        //Convert string to list of characters
+        
+        String name="bhusan";
 
+        name.chars().mapToObj(c -> (char) c).toList()
 
+        // first non repeating character
+
+        String input="swiss";
+        
+
+        LinkedHashMap<Character,Long> map=input.chars().mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(Function.identity(),
+                        LinkedHashMap::new,
+                        Collectors.counting()));
+
+        Optional<Map.Entry<Character, Long>> first1 = map.entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst();
 
 
     }
