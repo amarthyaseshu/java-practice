@@ -146,6 +146,27 @@ public class Problems {
         Integer maxNumb =numbList.stream().max(Integer::compareTo).get();
         Integer minNumb = numbList.stream().min(Integer::compareTo).get();
 
+     //Example - Find Employee with Max Salary
+     Optional <Employee> highestPaid = employees.stream()
+             .collect (Collectors. reducing ((e1, e2) ->
+                     e1.getSalary() > e2.getSalary ( ) ? e1: e2));
+
+
+     // Group employee by department & only their name is required
+     Map<String, List<String>> deptToNames = employees.stream()
+             .collect (Collectors.groupingBy(
+                     Employee::getDepartment, // Grouping key
+                     Collectors.mapping (Employee::getName, // Extract value
+                             Collectors.toList()) // Collect into List
+             ));
+
+
+     Map<Boolean, List<String>> nameMap = employees.stream()
+             .collect (Collectors.partitioningBy(
+                     e->e.getSalary() > 100000,
+                     Collectors.mapping (Employee :: getName, Collectors.toList())
+             ));
+
 
     }
 }

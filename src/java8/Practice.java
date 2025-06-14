@@ -1,5 +1,6 @@
 package java8;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -91,7 +92,7 @@ public class Practice {
         
         String name="bhusan";
 
-        name.chars().mapToObj(c -> (char) c).toList()
+        name.chars().mapToObj(c -> (char) c).toList();
 
         // first non repeating character
 
@@ -104,6 +105,37 @@ public class Practice {
                         Collectors.counting()));
 
         Optional<Map.Entry<Character, Long>> first1 = map.entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst();
+
+
+        // Fabinocii
+
+        Stream.iterate (new int[] {0, 1}, f-> new int[]{f[1], f[0] + f[1]})
+                 .limit(10)
+                .map(f->f[0])
+                .forEach(System.out::println);
+
+        // Compound interest
+        Stream.iterate (1000.0, amt -> amt * 1.05) // 5% growth per year
+                .limit(10)
+                .forEach(System.out :: println);
+
+        // Generates the next 7 days from today.
+        Stream.iterate (LocalDate.now(), date -> date.plusDays (1))
+                .limit(7)
+                .forEach (System.out :: println);
+
+        //Example-Random OTP Generator - Num between 0 to 8999
+        Stream.generate ( ( ) -> new Random().nextInt(9000) + 1000)
+                .limit(5)
+                .forEach (System.out :: println);
+
+        // To combine 2 collections
+//        Map<String, ?> result = orders.stream()
+//                .collect (Collectors.teeing (
+//                        Collectors.summingDouble (Order::getTotal), // First collector
+//                        Collectors.averagingDouble (Order :: getTotal), // Second collector
+//                        (sum, avg)-> Map.of("Total", sum, "Average", avg) // Merge logic
+//                ));
 
 
     }
