@@ -1,18 +1,20 @@
-public class Singleton {
+package singleton;
+
+public class DoubleCheckedSingleton {
     // static because below mtd is static
     // volatile because if this obj is stored in cache memory then below if condn null check wont give corect result
-    public static volatile Singleton s=null;
+    public static volatile DoubleCheckedSingleton s=null;
 
-    private Singleton(){
+    private DoubleCheckedSingleton(){
 
     }
     // static mtd because constructor is private & we cant call non static mtd without creating object
    // synchronized not necessary in mtd lvl because if obj already created then no need for threads to wait
-    public static Singleton getSingleton(){
+    public static DoubleCheckedSingleton getSingleton(){
         if(s==null){
-            synchronized (Singleton.class){//If both threads r here at a time, one thread enters but again multiple instance will be created so double check is required
+            synchronized (DoubleCheckedSingleton.class){//If both threads r here at a time, one thread enters but again multiple instance will be created so double check is required
                 if(s==null){
-                     s=new Singleton();
+                     s=new DoubleCheckedSingleton();
                 }
             }
         }
